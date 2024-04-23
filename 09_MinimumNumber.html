@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            margin: auto;
+            width: 50%;
+            height: 50%;
+            /* border: 3px solid black; */
+        }
+
+        input {
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Enter any two number to display which number is minimum from them</h1>
+
+        <div class="number">
+            <label for="num1">Number 1:</label>
+            <input type="number" id="num1">
+            <br><br>
+            <label for="num2">Number 2:</label>
+            <input type="number" id="num2">
+            <br>
+            <div>
+                <h2 id="msg"></span></h2>
+            </div>
+            <br>
+            <div class="btn">
+                <button onclick="findMinimumNum()">Display</button>
+            </div>
+        </div>
+
+
+        <script>
+            function findMinimumNum() {
+                let num1 = Number(document.getElementById("num1").value);
+                let num2 = Number(document.getElementById("num2").value);
+
+                let Min = Math.min(num1, num2);
+                document.getElementById("msg").innerHTML = "The Minimum Number is: " + Min;
+            }
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Buttons</title>
+    <style>
+        #colorDisplay {
+            margin-top: 20px;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Click a Button to Change Color:</h2>
+
+    <button onclick="changeColor('red')">Red</button>
+    <button onclick="changeColor('green')">Green</button>
+    <button onclick="changeColor('blue')">Blue</button>
+
+    <hr>
+
+    <div id="colorDisplay"></div>
+
+    <script>
+        function changeColor(color) {
+            var colorDisplay = document.getElementById("colorDisplay");
+            colorDisplay.style.backgroundColor = color;
+        }
+    </script>
+
+</body>
+
+</html>

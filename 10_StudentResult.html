@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main {
+            border: 2px solid black;
+            height: auto;
+            width: fit-content;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            padding: 5px 0px;
+        }
+
+        p {
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        input[type="text"] {
+            height: 20px;
+            width: 200px;
+            padding: 0px 3px;
+        }
+
+        button {
+            height: 30px;
+            width: 100px;
+            margin-top: 10px;
+        }
+
+        span {
+            color: blue;
+        }
+
+        .msg {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Marksheet for Information Technology</h1>
+        <p>Enter Marks</p>
+        <form action="" name="myform">
+            <div class="row">
+                <div class="col">
+                    <label for="">1. C Language</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="sub1" placeholder="Out of 50" onblur="checkBlank(this, 'msg1')"
+                        onkeyup="checkInvaildNum(this, 'msg1')">
+                </div>
+                <div class="col">
+                    <span id="msg1" class="msg"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">2. C++ Language</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="sub2" placeholder="Out of 50" onblur="checkBlank(this, 'msg2')"
+                        onkeyup="checkInvaildNum(this, 'msg2')">
+                </div>
+                <div class="col">
+                    <span id="msg2" class="msg"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">3. Database</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="sub3" placeholder="Out of 50" onblur="checkBlank(this, 'msg3')"
+                        onkeyup="checkInvaildNum(this, 'msg3')">
+                </div>
+                <div class="col">
+                    <span id="msg3" class="msg"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">4. HTML</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="sub4" placeholder="Out of 50" onblur="checkBlank(this, 'msg4')"
+                        onkeyup="checkInvaildNum(this, 'msg4')">
+                </div>
+                <div class="col">
+                    <span id="msg4" class="msg"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">5. CSS</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="sub5" placeholder="Out of 50" onblur="checkBlank(this, 'msg5')"
+                        onkeyup="checkInvaildNum(this, 'msg5')">
+                </div>
+                <div class="col">
+                    <span id="msg5" class="msg"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">6. php</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="sub6" placeholder="Out of 50" onblur="checkBlank(this, 'msg6')"
+                        onkeyup="checkInvaildNum(this, 'msg6')">
+                </div>
+                <div class="col">
+                    <span id="msg6" class="msg"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">7. Core java</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="sub7" placeholder="Out of 50" onblur="checkBlank(this, 'msg7')"
+                        onkeyup="checkInvaildNum(this, 'msg7')">
+                </div>
+                <div class="col">
+                    <span id="msg7" class="msg"></span>
+                </div>
+            </div>
+            <!-- =========================================================================================== -->
+
+
+            <div class="row">
+                <div class="col">
+                    <button onclick="return calculate()">Result</button>
+                </div>
+            </div>
+
+            <!-- =========================================================================================== -->
+
+            <div class="row">
+                <div class="col">
+                    <p>Total is : <span id="total">000</span> / 350 </p>
+                </div>
+                <div class="col">
+                    <p>Percentage is : <span id="per"></span>% </p>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script>
+        function calculate() {
+            var s1 = document.getElementById("sub1").value;
+            var s2 = document.getElementById("sub2").value;
+            var s3 = document.getElementById("sub3").value;
+            var s4 = document.getElementById("sub4").value;
+            var s5 = document.getElementById("sub5").value;
+            var s6 = document.getElementById("sub6").value;
+            var s7 = document.getElementById("sub7").value;
+
+            if (s1 == "" || s2 == "" || s3 == "" || s4 == "" || s5 == "" || s6 == "" || s7 == "") {
+                alert("Please fill all the fields");
+            } else {
+                let total = Number(s1) + Number(s2) + Number(s3) + Number(s4) + Number(s5) + Number(s6) + Number(s7);
+                if (total > 350) {
+                    document.getElementById("total").ariaDisabled;
+                } else {
+                    let per = Math.round(Number(total * 100 / 350))
+                    document.getElementById("total").innerHTML = total;
+                    document.getElementById("per").innerHTML = per;
+                }
+                return false;
+            }
+        }
+
+        function checkBlank(inp, myid) {
+            if (inp.value == "" || inp.value == null) {
+                document.getElementById(myid).innerText = "Enter Value";
+            } else {
+                document.getElementById(myid).innerText = "";
+                return false;
+            }
+        }
+        function checkInvaildNum(inp, myid) {
+            if (inp.value > 50) {
+                document.getElementById(myid).innerText = "Invalid Marks"
+                return false
+            } else {
+                document.getElementById(myid).innerText = "";
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

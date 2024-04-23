@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main {
+        border: 2px solid black;
+        height: auto;
+        width: 400px;
+        margin: 150px auto;
+        padding: 20px;
+    }
+
+    .row {
+        display: flex;
+        padding: 5px 0px;
+    }
+
+    col {
+        flex: 1;
+    }
+
+    h3 {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    input[type="text"] {
+        height: 20px;
+        width: 200px;
+        margin-left: 10px;
+    }
+
+    button {
+        height: 30px;
+        width: 50px;
+        margin: 2px;
+        font-size: 20px;
+    }
+
+    p {
+        margin-left: 20px;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    span {
+        color: blue;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <h3>Maths Operations</h3>
+        <form action="">
+            <div class="row">
+                <div class="col">
+                    <label for="">Enter 1st number :</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="num1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Enter 2st number :</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="num2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button id="plus" onclick="return addvalue()">+</button>
+                    <button id="minus" onclick="return cutvalue()">-</button>
+                    <button id="multiply" onclick="return mautiplyvalue()">*</button>
+                    <br>
+                    <button id="divide" onclick="return devidevalue()">/</button>
+                    <button id="module" onclick="return modulevalue()">%</button>
+                </div>
+                <div class="col">
+                    <p>Answer is : <span id="msg"></span></p>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function addvalue() {
+            let n1 = Number(document.getElementById("num1").value);
+            let n2 = Number(document.getElementById("num2").value);
+
+            let plus = n1 + n2;
+            document.getElementById("msg").innerHTML = plus;
+            return false
+        }
+        function cutvalue() {
+            let n1 = Number(document.getElementById("num1").value);
+            let n2 = Number(document.getElementById("num2").value);
+
+            let minus = n1 - n2;
+            document.getElementById("msg").innerHTML = minus;
+            return false
+        }
+
+        function mautiplyvalue() {
+            let n1 = Number(document.getElementById("num1").value);
+            let n2 = Number(document.getElementById("num2").value);
+
+            let multi = n1 * n2;
+            document.getElementById("msg").innerHTML = multi;
+            return false
+        }
+
+        function devidevalue() {
+            let n1 = Number(document.getElementById("num1").value);
+            let n2 = Number(document.getElementById("num2").value);
+
+            let divided = n1 / n2;
+            document.getElementById("msg").innerHTML = divided;
+            return false
+        }
+
+        function modulevalue() {
+            let n1 = Number(document.getElementById("num1").value);
+            let n2 = Number(document.getElementById("num2").value);
+
+            let mod = n1 % n2;
+            document.getElementById("msg").innerHTML = mod;
+            return false
+        }
+
+    </script>
+</body>
+
+</html>

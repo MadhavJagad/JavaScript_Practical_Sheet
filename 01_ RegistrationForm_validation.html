@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rgform {
+            border: 5px solid black;
+            width: 600px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        input[type=text],
+        input[type=number],
+        input[type=password] {
+            height: 20px;
+            width: 200px;
+        }
+
+        input[type=radio] {
+            height: 15px;
+            width: 20px;
+        }
+
+        button {
+            margin: 5px 160px;
+            text-align: center;
+            height: 35px;
+            width: 300px;
+            border: 2px solid white;
+            background-color: blue;
+            border-radius: 10px;
+            transition: 0.5s ease;
+        }
+
+        button:hover {
+            border: 2px solid blue;
+            background-color: white;
+        }
+
+        h6 {
+            color: red;
+            font-size: 17px;
+        }
+
+        #empty,
+        #empty1,
+        #empty2,
+        #empty3,
+        #empty4,
+        #empty5,
+        #empty6,
+        #empty7,
+        #empty8,
+        #empty9 {
+            color: red;
+        }
+
+        .error {
+            border: 1px solid red;
+            outline: 1px solid red;
+        }
+
+        .success {
+            border: 1px solid green;
+            outline: 1px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rgform">
+        <h1>Registration for job</h1>
+        <form action="#" name="Myform" method="post">
+            <table align="center" cellpadding="10">
+                <tr>
+                    <td>First Name :-</td>
+                    <td><input type="text" name="" id="Fname" placeholder="Enter Your First Name"
+                            onblur="return validateForm()">
+                        <div><span id="empty"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Middle Name :-</td>
+                    <td><input type="text" name="" id="Mname" placeholder="Enter Your Middle Name"
+                            onblur="return validateForm()">
+                        <div><span id="empty1"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last Name :-</td>
+                    <td><input type="text" name="" id="Lname" placeholder="Enter Your Last Name"
+                            onblur="return validateForm()">
+                        <div><span id="empty2"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address :-</td>
+                    <td><textarea name="" id="Tx" cols="30" rows="3" placeholder="Enter Your Full Address"
+                            onblur="return validateForm()"></textarea>
+                        <div><span id="empty3"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date Of Birth :-</td>
+                    <td><input type="date" name="" onblur="return validateForm()">
+                        <div><span id="empty4"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender :-</td>
+                    <td><input type="radio" name="gen" id="male">
+                        <label for="">Male</label>
+                        <input type="radio" name="gen" id="female">
+                        <label for="">Female</label>
+                        <div><span id="empty5"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Experince :-</td>
+                    <td><select name="" id="option">
+                            <option value="-1">---Select---</option>
+                            <option value="">Fresher</option>
+                            <option value="">6 Months</option>
+                            <option value="">1 Year</option>
+                            <option value="">More than 1 Year</option>
+                        </select>
+                        <div><span id="empty6"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mobile No. :-</td>
+                    <td><input type="text" name="" id="Num" placeholder="Enter Your Mobile Number"
+                            onkeyup="return PhoneNumexpressions()" onblur="return validateForm()">
+                        <div><span id="empty7"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email Id :-</td>
+                    <td><input type="text" name="" id="Mail" placeholder="Enter Your Email ID"
+                            onkeyup="return emailexpressions()" onblur="return validateForm()">
+                        <div><span id="empty8"></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>create Passworld :-</td>
+                    <td><input type="password" name="" id="pass" placeholder="Enter Your Password"
+                            onkeyup=" return validatePassword()" onblur="return validateForm()">
+                        <div><span id="empty9"></span></div>
+
+                    <td><input type="checkbox" name="" id="show" onclick="Showpassword()">
+                        <label for="">Show Password</label>
+                    </td>
+
+                    </td>
+                </tr>
+            </table>
+            <!-- <h6 id="empty"></h6> -->
+            <button onclick="return validateForm()">Register</button>
+        </form>
+    </div>
+
+
+
+    <script>
+        //All Text Fields
+        function validateForm() {
+            let firstN = document.getElementById("Fname");
+            let middleN = document.getElementById("Mname");
+            let lastN = document.getElementById("Lname");
+            let address = document.getElementById("Tx");
+            let birthD = document.getElementById("DOB");
+            let mnum = document.getElementById("Num");
+            let mail = document.getElementById("Mail");
+            let pword = document.getElementById("pass");
+            if (firstN.value == "" || middleN.value == "" || lastN.value == "" || address == "" || birthD == "" || mnum == "" || mail == "" || pword == "") {
+                document.getElementById("empty").innerHTML = "Please Enter Value"
+                document.getElementById("empty1").innerHTML = "Please Enter Value"
+                document.getElementById("empty2").innerHTML = "Please Enter Value"
+                document.getElementById("empty3").innerHTML = "Please Enter your Full Address"
+                document.getElementById("empty4").innerHTML = "Please select your Date of Birth"
+                document.getElementById("empty7").innerHTML = "Please Enter Your Mobile Number"
+                document.getElementById("empty8").innerHTML = "Please Enter Your Email ID"
+                document.getElementById("empty9").innerHTML = "Please Enter Your Password"
+                firstN.classList.add("error");
+                middleN.classList.add("error");
+                lastN.classList.add("error");
+                address.classList.add("error");
+                birthD.classList.add("error");
+                mnum.classList.add("error");
+                mail.classList.add("error");
+                pword.classList.add("error");
+            } else {
+                document.getElementById("empty").innerHTML = ""
+                document.getElementById("empty1").innerHTML = ""
+                document.getElementById("empty2").innerHTML = ""
+                document.getElementById("empty3").innerHTML = ""
+                document.getElementById("empty4").innerHTML = ""
+                document.getElementById("empty7").innerHTML = ""
+                document.getElementById("empty8").innerHTML = ""
+                document.getElementById("empty9").innerHTML = ""
+                firstN.classList.remove("error");
+                middleN.classList.remove("error");
+                lastN.classList.remove("error");
+                address.classList.remove("error");
+                birthD.classList.remove("error");
+                mnum.classList.remove("error");
+                mail.classList.remove("error");
+                pword.classList.remove("error");
+            }
+            //====================================================================================================
+            //Radio Button
+            let m = document.getElementById("male");
+            let f = document.getElementById("female");
+            if (m.checked == false && f.checked == false) {
+                document.getElementById("empty5").innerHTML = "Please select your Gender"
+                // m.classList.add("error");
+                //f.classList.add("error");
+            } else {
+                document.getElementById("empty5").innerHTML = ""
+                // m.classList.remove("error");
+                //f.classList.remove("error");
+            }
+            //====================================================================================================
+            //Select Option
+            let select = document.getElementById("option");
+            if (select.value == -1) {
+                document.getElementById("empty6").innerHTML = "Please select your Experience"
+                select.classList.add("error")
+            } else {
+                document.getElementById("empty6").innerHTML = ""
+                select.classList.remove("error")
+            }
+            return false;
+        }
+        //====================================================================================================
+        //Show Password
+        function Showpassword() {
+            let p = document.getElementById("pass");
+            if (p.type == "password") {
+                p.type = "text";
+            } else {
+                p.type = "password";
+            }
+            // return false
+        }
+        //====================================================================================================
+        ///Regular Expression
+        //Mobile Number Validation
+        // function regEx(numminput, mymsg) {
+        //     let ptn = /^\d{10}$/;
+        //     if (!ptn.test(numminput.value)) {
+        //         document.getElementById(emsg).innerHTML = "Invaild Phone Number";
+        //         pnumvber.classList.add("error");
+        //     } else {
+        //         document.getElementById(emsg).innerHTML = "";
+        //         pnumvber.classList.remove("error");
+        //         pnumvber.classList.add("success");
+        //     }
+        //     return false
+        // }
+
+        function PhoneNumexpressions() {
+            let mnum = document.getElementById("Num");
+            let ptn = /^[0-9]{10}$/;
+            if (!ptn.test(mnum)) {
+                document.getElementById("empty7").innerHTML = "Invaild Mobile Number";
+                mnum.classList.add("error");
+            } else {
+                document.getElementById("empty7").innerHTML = "";
+                mnum.classList.remove("error");
+                mnum.classList.add("success");
+            }
+            return false;
+        }
+        //================================================================================================
+        //Email validation
+
+        function emailexpressions() {
+            let mail = document.getElementById("Mail");
+            let ptn = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!ptn.test(mail)) {
+                document.getElementById("empty8").innerHTML = "Invaild Email ID";
+                mail.classList.add("error");
+            } else {
+                document.getElementById("empty8").innerHTML = "";
+                mail.classList.remove("error");
+                mail.classList.add("success");
+            }
+            return false;
+        }
+
+        //====================================================================================================
+        //Password Validation
+
+        function validatePassword() {
+            let pword = document.getElementById("pass");
+            let ptn = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
+            if (!ptn.test(pword.value)) {
+                document.getElementById("empty9").innerHTML = "Invaild Password";
+                pword.classList.add("error");
+            } else {
+                document.getElementById("empty9").innerHTML = "";
+                pword.classList.remove("error");
+                pword.classList.add("success");
+            }
+            return false;
+        }
+
+    </script>
+
+
+</body>
+
+</html>

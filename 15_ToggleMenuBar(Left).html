@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .bgimg {
+            position: absolute;
+            width: 100%;
+        }
+
+        .bgimg img {
+            width: 100%;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 111;
+            top: 0;
+            left: -250px;
+            background-color: lightseagreen;
+            transition: 1s ease-in-out;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .sidebar .menuitem {
+            display: grid;
+            gap: 15px;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+        }
+
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 35px;
+        }
+
+        .sidebar .closebtn:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .bgimg .btn {
+            position: absolute;
+            padding-left: 30px;
+            padding-top: 10px;
+        }
+
+        .bgimg .btn button {
+            padding: 5px 10px;
+            font-size: 20px;
+            font-weight: 800;
+            border: 1px solid white;
+            background-color: transparent;
+            color: white;
+        }
+
+        .bgimg .btn button:hover {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar" id="sidenav">
+        <div class="menuitem">
+            <a href="" class="closebtn" onclick="closemenu()">&times;</a>
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Contact</a>
+            <a href="">Services</a>
+            <a href="">Pages</a>
+            <a href="">Registration</a>
+            <a href="">Login</a>
+        </div>
+    </div>
+    <div class="bgimg">
+        <div class="btn">
+            <button onclick="openmenu()">&#9776;</button>
+        </div>
+        <img src="https://img.freepik.com/premium-photo/beautiful-background_972324-936.jpg" alt="">
+    </div>
+
+    <script>
+        function openmenu() {
+            document.getElementById("sidenav").style.left = "0";
+        }
+        function closemenu() {
+            document.getElementById("sidenav").style.left = "-250px";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: transparent;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            transition: 0.5s ease;
+        }
+
+        /* Replacement Class */
+        .topheader {
+            background-color: rgb(19, 19, 19);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        header .container nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        header .container nav .logo {
+            flex: 1;
+        }
+
+        header .container nav .logo h2 {
+            color: white;
+            font-size: 30px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: underline;
+        }
+
+        header .container nav .menubar {
+            flex: 1;
+        }
+
+        header .container nav .menubar ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        header .container nav .menubar ul a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+
+        section img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="myheader">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h2>Logo</h2>
+                </div>
+                <div class="menubar">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <img src="https://i.pinimg.com/originals/c5/40/01/c540018ca1c7b93cb1fbc218ea0c73a7.png" alt="">
+    </section>
+
+    <script>
+        let Head = document.querySelector("header");
+        window.addEventListener("scroll", () => {
+            let current = window.scrollY;
+            if (current > 0) {
+                Head.classList.add("topheader");
+            } else {
+                Head.classList.remove("topheader");
+            }
+        })
+    </script>
+</body>
+
+</html>
